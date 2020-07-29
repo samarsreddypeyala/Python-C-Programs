@@ -1,0 +1,55 @@
+Here is the working
+
+[1] . 
+
+This is an obfuscated code to print the Map of India. 
+
+The Code can mainly  be Divided in 4 parts :
+
+**(i) The Mystery String :** 
+
+Well it is type of [Run-length Encoding][2] where each character at even position tells us how many spaces to print and odd character tells us how many '!' to print. 
+
+Also first 31 characters of this string are omitted. 
+
+**For Eg:** 
+
+The 32nd character is 'T' so the it will print space 'T'-64 times or (84-64)=20 times and the next character is 'F' so this tells to print 'F'-64 times the character '!' or (70-64) = 6 times.
+
+**(ii) Outer Loop :** 
+
+This loop traverse through the **Mystery String** and **b** is used as index of the character and **a** stores the value of the character . 
+
+
+**(iii) Inner Loop :** 
+
+The value of **c** goes from **10 to 90** **( ascii value of 'Z')** and it is used for printing the characters and the character are printed **a-64 times**.
+
+**(iv) putchar :** 
+
+The putchar can be re-written as :- 
+
+
+    ++c;
+    if(c=='Z') //Ascii value of 'Z' is 90
+    {
+       c/=9; // Here c becomes 10 which is the ascii value of newline
+       putchar(c);
+    }
+    else
+    {
+       if(b&1)  //Here the trick used is ascii value of ! is 33 and of ' ' is 32 so he xors 33^(b&1)
+          putchar('!');
+       else
+          putchar(' ');
+    }
+
+
+
+If you are interested in more such code read the about [International Obfuscated C Code Contest][3] . 
+
+
+  [1]: http://ideone.com/oD9hRC
+  [2]: http://en.wikipedia.org/wiki/Run_length_encoding
+  [3]: http://en.wikipedia.org/wiki/International_Obfuscated_C_Code_Contest
+
