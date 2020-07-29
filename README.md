@@ -1,2 +1,2 @@
-# Python-Linear-Algebra
-Python program illustrating linear algebra operations using numpy
+# Python and C programs
+- This repositary contains logical Python and C programs
